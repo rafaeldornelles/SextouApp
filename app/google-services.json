@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1084162901175",
+    "project_id": "sextouapp-53b7c",
+    "storage_bucket": "sextouapp-53b7c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1084162901175:android:84df53712d8cfcfb623932",
+        "android_client_info": {
+          "package_name": "br.com.app.sextouApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1084162901175-i62g1cpcbe4essrucicdsld3thq8trse.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjaCOTc806q1HzfZY6-45AIpYBkuom-qU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1084162901175-i62g1cpcbe4essrucicdsld3thq8trse.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
