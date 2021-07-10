@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">SextouApp</string>
+    <string name="login_label">Login</string>
+    <string name="password_label">password</string>
+    <string name="sign_in">Sign in</string>
+    <string name="sign_up">Sign up</string>
+
+    <string name="or_login">OR</string>
+    <string name="sign_in_google">Sign in With Google</string>
+    <string name="sign_in_twitter">Sign in With Twitter</string>
+    <string name="sign_in_facebook">Sign in With Facebook</string>
+
+    <string name="validation_email_null">Please insert an e-mail.</string>
+    <string name="validation_email_invalid">Please enter a valid e-mail.</string>
+    <string name="validation_password_null">Please insert a password.</string>
+    <string name="validation_password_minsize">Password must have at least 6 characters.</string>
+    <string name="validation_name_null">Please insert a name.</string>
+    <string name="validation_name_minsize">Name must have at least 6 characters.</string>
+    <string name="validation_cpf_null">Please insert a CPF.</string>
+    <string name="validation_cpf_minsize">CPF must have at least 6 digits.</string>
+    <string name="validation_cpf_num">CPF must contain only numbers.</string>
+    <string name="validation_cpf_equaldigits">CPF must not contain all equal digits.</string>
+    <string name="validation_cpf_valid">Please insert a CPF.</string>
 </resources>

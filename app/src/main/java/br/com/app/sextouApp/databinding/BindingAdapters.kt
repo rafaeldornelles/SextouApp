@@ -6,10 +6,10 @@ import androidx.databinding.BindingAdapter
 
 
 object BindingAdapters {
-    @BindingAdapter("emailValidator")
+    @BindingAdapter("validator", "model", requireAll = true)
     @JvmStatic
-    fun setEmail(input: TextInputLayout, validator: Validator) {
-        input.error = with(validator.validate(input.editText?.text.toString())){
+    fun validate(input: TextInputLayout, validator: Validator, model: String?) {
+        input.error = with(validator.validate(model, input.context.applicationContext)){
             if(input.isDirty && this != null) this else null
         }
     }
