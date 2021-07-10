@@ -2,7 +2,6 @@ package br.com.app.sextouApp.ui.login
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,11 +9,10 @@ import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import br.com.app.sextouApp.MainActivity
 import br.com.app.sextouApp.R
 import br.com.app.sextouApp.databinding.FragmentLoginBinding
 import br.com.app.sextouApp.utils.RC_SIGN_IN_GOOGLE
-import br.com.app.sextouApp.utils.SecurityPreferences
-import br.com.app.sextouApp.utils.USER_ID_PREFERENCE_KEY
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
@@ -30,9 +28,6 @@ class LoginFragment : Fragment() {
     }
 
     private val auth = Firebase.auth
-    private val securityPreferences by lazy {
-        SecurityPreferences(requireContext())
-    }
 
     val gso: GoogleSignInOptions by lazy {
         GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -57,8 +52,9 @@ class LoginFragment : Fragment() {
         if (viewModel.formIsValid(requireContext())){
             auth.signInWithEmailAndPassword(viewModel.login.value!!, viewModel.password.value!!)
                 .addOnSuccessListener {
-                    onLoginSuccess()
-                }.addOnFailureListener {
+                    login()
+                }
+                .addOnFailureListener {
                     if (it is FirebaseAuthInvalidCredentialsException){
                         dataBinding.login.error = getString(R.string.login_error_auth)
                         dataBinding.password.error = getString(R.string.login_error_auth)
@@ -95,8 +91,8 @@ class LoginFragment : Fragment() {
         auth.signInWithCredential(credential)
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
-                    onLoginSuccess()
-                } else {
+                    login()
+                }else{
                     showErrorToast()
                 }
             }
@@ -106,9 +102,10 @@ class LoginFragment : Fragment() {
         Toast.makeText(requireContext(), getString(stringId), Toast.LENGTH_LONG).show()
     }
 
-    private fun onLoginSuccess(){
-        auth.currentUser?.uid?.let{ id ->
-            securityPreferences.store(USER_ID_PREFERENCE_KEY, id)
+    private fun login(){
+        if (auth.currentUser != null){
+            startActivity(Intent(requireContext(), MainActivity::class.java))
+            requireActivity().finish()
         }
     }
 }
