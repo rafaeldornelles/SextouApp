@@ -2,4 +2,9 @@
 <resources>
     <color name="colorPrimary">#77D353</color>
     <color name="colorPrimaryDark">#4AA725</color>
+
+
+    <color name="facebookColor">#0056FF</color>
+    <color name="twitterColor">#00A6FF</color>
+    <color name="googleColor">#F95F62</color>
 </resources>
