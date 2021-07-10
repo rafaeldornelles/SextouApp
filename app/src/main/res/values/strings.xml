@@ -21,4 +21,6 @@
     <string name="validation_cpf_num">CPF must contain only numbers.</string>
     <string name="validation_cpf_equaldigits">CPF must not contain all equal digits.</string>
     <string name="validation_cpf_valid">Please insert a CPF.</string>
+    <string name="login_error_auth">You have entered an invalid username or password</string>
+    <string name="login_error_generic">Something went wrong. Try again later.</string>
 </resources>
