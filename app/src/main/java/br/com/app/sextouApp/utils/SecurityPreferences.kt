@@ -16,7 +16,7 @@ class SecurityPreferences(context: Context) {
         mPreferences.edit().remove(key).apply()
     }
 
-    fun get(key: String): String? {
-        return mPreferences.getString(key, null)
+    fun get(key: String): String {
+        return mPreferences.getString(key, "") ?: ""
     }
 }
