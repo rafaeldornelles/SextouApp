@@ -83,6 +83,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/sign_up"
             app:layout_constraintBottom_toBottomOf="@id/sign_up"
+            android:enabled="@{viewModel.formIsValid()}"
             />
 
         <View

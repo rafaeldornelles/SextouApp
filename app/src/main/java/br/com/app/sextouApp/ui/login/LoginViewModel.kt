@@ -1,6 +1,7 @@
 package br.com.app.sextouApp.ui.login
 
 import android.content.Context
+import android.graphics.Bitmap
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import br.com.app.sextouApp.utils.Validator
@@ -10,7 +11,7 @@ class LoginViewModel: ViewModel() {
     val login = MutableLiveData<String>()
     val password = MutableLiveData<String>()
 
-    fun formIsValid(context: Context): Boolean{
-        return Validator.EMAIL.validate(login.value, context) == null && password.value?.isNotBlank()?: false
+    fun formIsValid(): Boolean{
+        return Validator.EMAIL.validate(login.value) == null && password.value?.isNotBlank()?: false
     }
 }

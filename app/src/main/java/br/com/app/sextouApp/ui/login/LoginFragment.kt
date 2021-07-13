@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import br.com.app.sextouApp.MainActivity
 import br.com.app.sextouApp.R
 import br.com.app.sextouApp.databinding.FragmentLoginBinding
@@ -44,12 +45,13 @@ class LoginFragment : Fragment() {
         dataBinding.viewModel = viewModel
         dataBinding.lifecycleOwner = this
         dataBinding.signIn.setOnClickListener { loginWithEmailAndPassword() }
+        dataBinding.signUp.setOnClickListener { signUp() }
         dataBinding.socialButtonGoogle.setOnClickListener { loginWithGoogle() }
         return dataBinding.root
     }
 
     fun loginWithEmailAndPassword(){
-        if (viewModel.formIsValid(requireContext())){
+        if (viewModel.formIsValid()){
             auth.signInWithEmailAndPassword(viewModel.login.value!!, viewModel.password.value!!)
                 .addOnSuccessListener {
                     login()
@@ -107,5 +109,9 @@ class LoginFragment : Fragment() {
             startActivity(Intent(requireContext(), MainActivity::class.java))
             requireActivity().finish()
         }
+    }
+
+    private fun signUp(){
+        findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
     }
 }
