@@ -15,10 +15,16 @@
     <string name="validation_password_null">Please insert a password.</string>
     <string name="validation_password_minsize">Password must have at least 6 characters.</string>
     <string name="validation_name_null">Please insert a name.</string>
-    <string name="validation_name_minsize">Name must have at least 6 characters.</string>
+    <string name="validation_name_minsize">Name must have at least 3 characters.</string>
     <string name="validation_cpf_null">Please insert a CPF.</string>
     <string name="validation_cpf_minsize">CPF must have at least 6 digits.</string>
     <string name="validation_cpf_num">CPF must contain only numbers.</string>
     <string name="validation_cpf_equaldigits">CPF must not contain all equal digits.</string>
     <string name="validation_cpf_valid">Please insert a CPF.</string>
+    <string name="login_error_auth">You have entered an invalid username or password</string>
+    <string name="login_error_generic">Something went wrong. Try again later.</string>
+    <string name="menu_sign_out">Sign Out</string>
+    <string name="register_button_text">Register</string>
+    <string name="register_label_text">Please fill in the requested information:</string>
+    <string name="name_label">Full Name</string>
 </resources>

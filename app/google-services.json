@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1084162901175-ovovccajs90sheaau3jcg1a0obihlogt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.app.sextouApp",
+            "certificate_hash": "a368eb743eb9702ae2906718555734dae892198a"
+          }
+        },
+        {
           "client_id": "1084162901175-i62g1cpcbe4essrucicdsld3thq8trse.apps.googleusercontent.com",
           "client_type": 3
         }

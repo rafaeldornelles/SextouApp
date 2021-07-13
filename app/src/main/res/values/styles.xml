@@ -5,6 +5,11 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="actionBarTheme">@style/AppTheme.ActionBarStyle</item>
+    </style>
+
+    <style name="AppTheme.ActionBarStyle" parent="@style/Widget.MaterialComponents.Light.ActionBar.Solid">
+        <item name="android:colorForeground">@color/appBarForeground</item>
     </style>
 
 </resources>
