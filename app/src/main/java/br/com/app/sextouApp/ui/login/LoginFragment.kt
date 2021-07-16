@@ -63,6 +63,9 @@ class LoginFragment : Fragment() {
                     }
                     showErrorToast()
                 }
+        }else{
+            dataBinding.login.error = getString(R.string.error_form_invalid)
+            dataBinding.password.error = getString(R.string.error_form_invalid)
         }
     }
 
@@ -100,7 +103,7 @@ class LoginFragment : Fragment() {
             }
     }
 
-    private fun showErrorToast(@StringRes stringId: Int = R.string.login_error_generic){
+    private fun showErrorToast(@StringRes stringId: Int = R.string.error_generic){
         Toast.makeText(requireContext(), getString(stringId), Toast.LENGTH_LONG).show()
     }
 
