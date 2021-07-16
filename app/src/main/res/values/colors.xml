@@ -7,4 +7,5 @@
     <color name="facebookColor">#0056FF</color>
     <color name="twitterColor">#00A6FF</color>
     <color name="googleColor">#F95F62</color>
+    <color name="colorAccent">#f33769</color>
 </resources>
