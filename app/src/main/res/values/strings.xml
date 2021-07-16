@@ -29,4 +29,6 @@
     <string name="name_label">Full Name</string>
     <string name="error_camera">Error creating file. Try again later</string>
     <string name="error_form_invalid">Please provide valid information.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
