@@ -5,29 +5,41 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+
 
 class SplashScreenActivity : AppCompatActivity() {
-
-    private val auth = Firebase.auth
+    private lateinit var mViewModel: SplashScreenViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
         setContentView(R.layout.activity_splash_screen)
-        checkIsLoggedIn()
+
+        mViewModel = ViewModelProvider(this).get(SplashScreenViewModel::class.java)
+        mViewModel.verifyLoggedUser()
+        observer()
     }
 
-    private fun checkIsLoggedIn() {
-        Handler(Looper.getMainLooper()).postDelayed({ login() },1500)
+    private fun observer() {
+        mViewModel.loggedUser.observe(this, Observer {
+
+            Handler(Looper.getMainLooper()).postDelayed(object : Runnable {
+                override fun run() {
+                    login(it)
+                }
+            },1500)
+
+        })
+
     }
 
-    private fun login(){
-        if(auth.currentUser != null){
-            startActivity(Intent(this, MainActivity::class.java))
+    private fun login(it: Boolean?) {
+        if(it==true){
+            startActivity(Intent(this,MainActivity::class.java))
         }else{
-            startActivity(Intent(this, LoginActivity::class.java))
+            startActivity(Intent(this,LoginActivity::class.java))
         }
         finish()
     }

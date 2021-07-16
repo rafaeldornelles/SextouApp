@@ -24,6 +24,7 @@ import com.google.firebase.ktx.Firebase
 
 
 class LoginFragment : Fragment() {
+
     private val viewModel: LoginViewModel by lazy {
         ViewModelProvider(this).get(LoginViewModel::class.java)
     }
