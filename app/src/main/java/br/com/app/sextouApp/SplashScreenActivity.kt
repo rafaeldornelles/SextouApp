@@ -1,15 +1,15 @@
 package br.com.app.sextouApp
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 
-class SplashScreenActivity : AppCompatActivity() {
 
+class SplashScreenActivity : AppCompatActivity() {
     private lateinit var mViewModel: SplashScreenViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +27,7 @@ class SplashScreenActivity : AppCompatActivity() {
 
             Handler(Looper.getMainLooper()).postDelayed(object : Runnable {
                 override fun run() {
-                  login(it)
+                    login(it)
                 }
             },1500)
 
