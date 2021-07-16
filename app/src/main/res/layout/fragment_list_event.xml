@@ -5,16 +5,17 @@
     <data>
         <variable
             name="viewModel"
-            type="br.com.app.sextouApp.ui.event.ListEventViewModel" />
+            type="br.com.app.sextouApp.ui.event.list.ListEventViewModel" />
 
     </data>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.event.ListEventFragment">
+        tools:context=".ui.event.list.ListEventFragment">
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_event"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:listitem="@layout/item_event"/>
