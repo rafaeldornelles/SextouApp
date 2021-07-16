@@ -4,6 +4,8 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class SplashScreenViewModel (application: Application) : AndroidViewModel(application) {
 
@@ -13,7 +15,7 @@ class SplashScreenViewModel (application: Application) : AndroidViewModel(applic
 
 
     fun verifyLoggedUser() {
-        //"verifica se o usuario esta logado"
-        mLoggedUser.value = true
+        val user = Firebase.auth.currentUser
+        mLoggedUser.value = user!=null
     }
 }

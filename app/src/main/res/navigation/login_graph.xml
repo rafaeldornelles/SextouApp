@@ -10,4 +10,5 @@
         android:name="br.com.app.sextouApp.ui.login.LoginFragment"
         tools:layout="@layout/fragment_login"
         android:label="LoginFragment" />
+
 </navigation>

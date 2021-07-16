@@ -18,8 +18,8 @@ class SplashScreenActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
 
         mViewModel = ViewModelProvider(this).get(SplashScreenViewModel::class.java)
-        observer()
         mViewModel.verifyLoggedUser()
+        observer()
     }
 
     private fun observer() {
@@ -37,11 +37,10 @@ class SplashScreenActivity : AppCompatActivity() {
 
     private fun login(it: Boolean?) {
         if(it==true){
-
             startActivity(Intent(this,MainActivity::class.java))
-            finish()
         }else{
-            TODO("redirecionar para tela de login")
+            startActivity(Intent(this,LoginActivity::class.java))
         }
+        finish()
     }
 }

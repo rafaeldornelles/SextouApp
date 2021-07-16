@@ -21,4 +21,6 @@
     <string name="validation_cpf_num">CPF must contain only numbers.</string>
     <string name="validation_cpf_equaldigits">CPF must not contain all equal digits.</string>
     <string name="validation_cpf_valid">Please insert a CPF.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
