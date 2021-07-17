@@ -27,4 +27,7 @@
     <string name="register_button_text">Register</string>
     <string name="register_label_text">Please fill in the requested information:</string>
     <string name="name_label">Full Name</string>
+    <string name="cancel">Cancelar</string>
+    <string name="del">Deleter</string>
+    <string name="remove">Remover</string>
 </resources>
