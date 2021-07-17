@@ -7,6 +7,9 @@
         <variable
             name="purcharse"
             type="br.com.app.sextouApp.model.Purchases" />
+        <variable
+            name="hasInfo"
+            type="Boolean" />
 
         <import type="android.view.View" />
     </data>
@@ -36,6 +39,7 @@
             android:layout_height="wrap_content"
             tools:text="12 unidades\ncomprar o maior"
             android:text="@{purcharse.info}"
+            android:visibility="@{hasInfo? View.VISIBLE:View.GONE}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/item_name"
             app:layout_constraintTop_toBottomOf="@id/item_name"
@@ -48,7 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Purchased"
-            android:visibility="@{purcharse.purchased? View.VISIBLE: View.GONE}"
+            android:visibility="@{purcharse.purchased? View.VISIBLE : View.GONE}"
             style="@style/TextAppearance.AppCompat.Caption"
             android:textColor="@color/colorPrimaryDark"
             android:textStyle="bold"

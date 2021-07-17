@@ -17,11 +17,16 @@ import br.com.app.sextouApp.model.Event
 import br.com.app.sextouApp.repository.ListenerCrudFirebase
 import br.com.app.sextouApp.repository.ListenerList
 import br.com.app.sextouApp.ui.event.list.adapter.EventAdapter
+import br.com.app.sextouApp.ui.purchase.PurchaseViewModel
 
 class ListEventFragment : Fragment(), EventAdapter.ListenerEventClick {
 
     private val viewModel: ListEventViewModel by lazy {
         ViewModelProvider(this).get(ListEventViewModel::class.java)
+    }
+
+    private val purchaseViewModel: PurchaseViewModel by lazy {
+        ViewModelProvider(requireActivity()).get(PurchaseViewModel::class.java)
     }
 
     private lateinit var mAdapter: EventAdapter
@@ -71,6 +76,7 @@ class ListEventFragment : Fragment(), EventAdapter.ListenerEventClick {
     }
 
     override fun onClickView(event: Event) {
+        purchaseViewModel.eventId = event.id!!
         findNavController().navigate(R.id.action_listEventFragment_to_itemFragment)
     }
 

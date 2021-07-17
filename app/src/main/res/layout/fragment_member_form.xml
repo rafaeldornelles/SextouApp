@@ -31,7 +31,8 @@
             validator="@{Validator.EMAIL}"
             model="@{viewmodel.memberFormEmail}"
             android:layout_marginHorizontal="8dp"
-            app:layout_constraintVertical_chainStyle="packed">
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintVertical_bias="0.1">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"

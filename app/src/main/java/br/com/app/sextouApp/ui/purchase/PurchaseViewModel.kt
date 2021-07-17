@@ -1,16 +1,21 @@
 package br.com.app.sextouApp.ui.purchase
 
+import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.navigation.fragment.findNavController
+import br.com.app.sextouApp.R
 import br.com.app.sextouApp.model.Purchases
+import br.com.app.sextouApp.repository.ListenerCrudFirebase
+import br.com.app.sextouApp.repository.ListenerList
+import br.com.app.sextouApp.repository.PurchaseRepository
 import br.com.app.sextouApp.utils.Validator
 
 class PurchaseViewModel: ViewModel() {
-    val purchases = MutableLiveData(mutableListOf(
-        Purchases("0", "aaa", "kk", true),
-        Purchases("2", "ccc", "k2k", true),
-        Purchases("1", "bbb", "k3k", false)
-    ))
+    var eventId: String = ""
+    val purchaseRepository = PurchaseRepository()
+    val purchases = MutableLiveData<MutableList<Purchases>>(mutableListOf())
 
     val members = MutableLiveData(mutableListOf(
         "rafafd@hotmail.com",
@@ -28,22 +33,17 @@ class PurchaseViewModel: ViewModel() {
         return this.itemFormName.value?.isBlank() == false
     }
 
-    // TODO: INSERIR NO FIREBASE
-    fun submitItemForm(){
-        val purchase = Purchases("",
+    fun submitItemForm(listener: ListenerCrudFirebase){
+        val purchase = Purchases(itemFormId.value?:"",
             itemFormName.value!!,
             itemFormInfo.value,
             false)
 
-        val purchasesValue = this.purchases.value?: mutableListOf()
         if (this.itemFormId.value.isNullOrBlank()){
-            purchasesValue.add(purchase)
+            purchaseRepository.save(purchase, listener, eventId)
         }else{
-            purchasesValue.indexOfFirst{ it.id == itemFormId.value }.apply {
-                purchasesValue[this] = purchase
-            }
+            purchaseRepository.update(purchase, listener, eventId)
         }
-        this.purchases.value = purchasesValue
         this.itemFormName.value = ""
         this.itemFormInfo.value = ""
         this.itemFormId.value = null
@@ -77,4 +77,32 @@ class PurchaseViewModel: ViewModel() {
         memberFormId.value = position
         memberFormEmail.value = member
     }
+
+    fun markPurchased(position: Int, listener: ListenerCrudFirebase) {
+        val purchasesValue = this.purchases.value?: return
+        val changedPurchase = purchasesValue[position]
+        changedPurchase.purchased = true
+        this.purchaseRepository.update(changedPurchase, listener, eventId)
+    }
+
+    fun listPurchases(){
+        val listener = object : ListenerList<Purchases>{
+            override fun onError(message: String?) {
+                Log.e("ERROR", "Error retrieving data from firebase")
+            }
+
+            override fun onSuccess(list: List<Purchases>) {
+                purchases.value = list.toMutableList()
+            }
+
+            override fun onReload(list: List<Purchases>) {
+                purchases.value = list.toMutableList()
+            }
+        }
+
+        if (eventId.isNotBlank()){
+            this.purchaseRepository.listPurchases(listener, eventId)
+        }
+    }
+
 }
