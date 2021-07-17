@@ -45,10 +45,17 @@ object Validators {
         return null
     }
 
+    fun notBlankValidator(value: String?, context: Context?): String? {
+        return when {
+            value.isNullOrBlank() -> context?.getString(R.string.validation_name_null)?:""
+            else -> null
+        }
+    }
+
 }
 
 enum class Validator{
-    EMAIL, NAME, PASSWORD, CPF;
+    EMAIL, NAME, PASSWORD, CPF, NOTBLANK;
 
     fun validate(value: String?, context:Context? = null) : String?{
         return when(this){
@@ -56,6 +63,7 @@ enum class Validator{
             NAME -> Validators.nameValidator(value, context)
             PASSWORD -> Validators.passwordValidator(value, context)
             CPF -> Validators.cpfValidator(value, context)
+            NOTBLANK -> Validators.notBlankValidator(value, context)
         }
     }
 }

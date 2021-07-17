@@ -13,6 +13,9 @@ class SignUpViewModel: ViewModel() {
     val profilePic = MutableLiveData<Bitmap>()
 
     fun formIsValid(): Boolean {
+        val a = Validator.EMAIL.validate(email.value)
+        val b = Validator.PASSWORD.validate(password.value)
+        val c = Validator.NAME.validate(name.value) == null
         return Validator.EMAIL.validate(email.value) == null &&
                 Validator.PASSWORD.validate(password.value) == null &&
                 Validator.NAME.validate(name.value) == null

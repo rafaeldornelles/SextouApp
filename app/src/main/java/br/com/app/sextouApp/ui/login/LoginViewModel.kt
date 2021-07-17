@@ -2,6 +2,7 @@ package br.com.app.sextouApp.ui.login
 
 import android.content.Context
 import android.graphics.Bitmap
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import br.com.app.sextouApp.utils.Validator
