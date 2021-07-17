@@ -36,4 +36,7 @@
     <string name="insert_member_bt_text">Inserir Membro</string>
     <string name="member_form_email">Email</string>
     <string name="insert_valid_value">Insert a valid value.</string>
+    <string name="cancel">Cancelar</string>
+    <string name="del">Deleter</string>
+    <string name="remove">Remover</string>
 </resources>
