@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/itemFragment">
+    app:startDestination="@id/listEventFragment">
 
     <fragment
         android:id="@+id/itemFragment"
@@ -27,4 +27,22 @@
         android:name="br.com.app.sextouApp.ui.purchase.form.MemberFormFragment"
         android:label="fragment_member_form"
         tools:layout="@layout/fragment_member_form" />
+
+    <fragment
+        android:id="@+id/listEventFragment"
+        android:name="br.com.app.sextouApp.ui.event.list.ListEventFragment"
+        tools:layout="@layout/fragment_list_event"
+        android:label="ListEventFragment" >
+        <action
+            android:id="@+id/action_listEventFragment_to_eventFormFragment"
+            app:destination="@id/eventFormFragment" />
+        <action
+            android:id="@+id/action_listEventFragment_to_itemFragment"
+            app:destination="@id/itemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eventFormFragment"
+        android:name="br.com.app.sextouApp.ui.event.form.EventFormFragment"
+        android:label="event_form_fragment"
+        tools:layout="@layout/event_form_fragment" />
 </navigation>

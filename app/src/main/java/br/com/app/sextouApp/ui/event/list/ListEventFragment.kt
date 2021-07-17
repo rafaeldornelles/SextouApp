@@ -36,6 +36,7 @@ class ListEventFragment : Fragment(), EventAdapter.ListenerEventClick {
         dataBinding = FragmentListEventBinding.inflate(inflater, container, false)
         dataBinding.viewModel = viewModel
         dataBinding.lifecycleOwner = this
+        requireActivity().title = getString(R.string.event_title)
 
         dataBinding.floatingActionButton.setOnClickListener {
             findNavController().navigate(R.id.action_listEventFragment_to_eventFormFragment)
@@ -59,8 +60,7 @@ class ListEventFragment : Fragment(), EventAdapter.ListenerEventClick {
     }
 
     private fun createAdapter(list: List<Event>) {
-        this.mAdapter = EventAdapter(list)
-        this.mAdapter.listenerEventClick = this
+        this.mAdapter = EventAdapter(list, this)
         val recycler = dataBinding.listEvent
         recycler.layoutManager = LinearLayoutManager(context)
         recycler.adapter = mAdapter
@@ -71,7 +71,7 @@ class ListEventFragment : Fragment(), EventAdapter.ListenerEventClick {
     }
 
     override fun onClickView(event: Event) {
-        //Direciona a lista de produtos
+        findNavController().navigate(R.id.action_listEventFragment_to_itemFragment)
     }
 
     override fun onClickUpdate(event: Event) {

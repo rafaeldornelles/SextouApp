@@ -3,14 +3,14 @@ package br.com.app.sextouApp
 import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.AttributeSet
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toolbar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.drawable.toDrawable
+import com.google.android.material.tabs.TabLayout
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
@@ -19,13 +19,16 @@ class MainActivity : AppCompatActivity() {
     val auth = Firebase.auth
     val storage = Firebase.storage
 
+    val tabLayout by lazy {
+        findViewById<TabLayout>(R.id.tab_layout)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setAuthStateListener()
         setSupportActionBar(findViewById(R.id.toolbar))
-
+        hideTabLayout()
     }
 
     override fun onCreateView(name: String, context: Context, attrs: AttributeSet): View? {
@@ -60,6 +63,14 @@ class MainActivity : AppCompatActivity() {
                 finish()
             }
         }
+    }
+
+    fun hideTabLayout(){
+        tabLayout.visibility = View.GONE
+    }
+
+    fun showTabLayout(){
+        tabLayout.visibility = View.VISIBLE
     }
 
 }

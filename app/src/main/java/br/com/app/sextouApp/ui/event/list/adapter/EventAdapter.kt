@@ -10,9 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import br.com.app.sextouApp.R
 import br.com.app.sextouApp.model.Event
 
-class EventAdapter(var listEvent:List<Event>,) :RecyclerView.Adapter<EventAdapter.EventViewHolder>(){
-    var listenerEventClick: ListenerEventClick?=null
-
+class EventAdapter(var listEvent:List<Event>, val listener: ListenerEventClick) :RecyclerView.Adapter<EventAdapter.EventViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventViewHolder {
         var inflate = LayoutInflater.from(parent.context).inflate(R.layout.item_event,parent,false)
         return EventViewHolder(inflate)
@@ -48,8 +46,8 @@ class EventAdapter(var listEvent:List<Event>,) :RecyclerView.Adapter<EventAdapte
 //            }else{
 //                itemView.findViewById<ImageView>(R.id.image_status).setImageResource(R.drawable.ic_todo)
 //            }
-            card.setOnClickListener{listenerEventClick?.onClickView(event)}
-            itemView.findViewById<ImageView>(R.id.image_status).setOnClickListener { listenerEventClick?.onClickUpdate(event) }
+            card.setOnClickListener{listener.onClickView(event)}
+            itemView.findViewById<ImageView>(R.id.image_status).setOnClickListener { listener.onClickUpdate(event) }
         }
     }
 

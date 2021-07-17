@@ -33,6 +33,7 @@ class EventFormFragment : Fragment(), DatePickerDialog.OnDateSetListener {
         dataBinding.lifecycleOwner = this
         dataBinding.buttonDate.setOnClickListener { showDatePicker(container?.context!!) }
         dataBinding.SaveButton.setOnClickListener { save(container?.context!!) }
+        requireActivity().title = getString(R.string.novo_evento_title)
         return dataBinding.root
     }
 

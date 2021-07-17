@@ -39,4 +39,8 @@
     <string name="cancel">Cancelar</string>
     <string name="del">Deleter</string>
     <string name="remove">Remover</string>
+    <string name="novo_evento_title">Novo Evento</string>
+    <string name="tab_items_title">Items</string>
+    <string name="tab_members_title">Members</string>
+    <string name="event_title">Eventos</string>
 </resources>

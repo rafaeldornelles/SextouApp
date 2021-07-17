@@ -19,7 +19,6 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:title="Festa da Firma"
                 app:titleTextColor="@android:color/white"
                 />
             <com.google.android.material.tabs.TabLayout
