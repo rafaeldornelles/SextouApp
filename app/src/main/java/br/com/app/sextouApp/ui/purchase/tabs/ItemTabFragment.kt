@@ -53,6 +53,11 @@ class ItemTabFragment : Fragment(), ItemListAdapter.OnPurchaseItemClickListener 
         super.onResume()
     }
 
+    override fun onStop() {
+        viewModel.purchases.value = mutableListOf()
+        super.onStop()
+    }
+
     override fun onPurchaseItemClick(item: Purchases) {
         viewModel.setItemFormValue(item)
         findNavController().navigate(R.id.action_itemFragment_to_itemFormFragment)

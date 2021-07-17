@@ -44,6 +44,11 @@ class MembersTabFragment: Fragment(), MemberListAdapter.OnMemberClickListener {
         super.onViewCreated(view, savedInstanceState)
     }
 
+    override fun onStop() {
+        viewModel.members.value = mutableListOf()
+        super.onStop()
+    }
+
     override fun onMemberClick(member: Member, position: Int) {
         viewModel.setMemberFormValue(member, position)
         findNavController().navigate(R.id.action_itemFragment_to_memberFormFragment)
