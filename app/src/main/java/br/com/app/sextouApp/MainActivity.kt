@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<TabLayout>(R.id.tab_layout)
     }
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
