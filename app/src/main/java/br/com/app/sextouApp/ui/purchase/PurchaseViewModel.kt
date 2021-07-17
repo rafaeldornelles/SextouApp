@@ -32,7 +32,7 @@ class PurchaseViewModel: ViewModel() {
     fun submitItemForm(listener: ListenerCrudFirebase){
         val purchase = Purchases(itemFormId.value?:"",
             itemFormName.value!!,
-            itemFormInfo.value,
+            itemFormInfo.value?:"",
             false)
 
         if (this.itemFormId.value.isNullOrBlank()){
