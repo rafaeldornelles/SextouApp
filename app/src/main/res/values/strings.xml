@@ -39,10 +39,10 @@
     <string name="cancel">Cancelar</string>
     <string name="del">Deleter</string>
     <string name="remove">Remover</string>
-    <string name="novo_evento_title">Novo Evento</string>
+    <string name="novo_evento_title">New Event</string>
     <string name="tab_items_title">Items</string>
     <string name="tab_members_title">Members</string>
-    <string name="event_title">Eventos</string>
+    <string name="event_title">Event</string>
     <string name="option_purchased">Mark as Purchased</string>
     <string name="error_crud">error while saving.</string>
 </resources>
