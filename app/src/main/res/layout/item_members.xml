@@ -6,7 +6,7 @@
     <data>
         <variable
             name="member"
-            type="String" />
+            type="br.com.app.sextouApp.model.Member" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,7 +18,7 @@
             android:layout_width="65dp"
             android:layout_height="0dp"
             android:layout_margin="16dp"
-            android:src="@drawable/drawable_round_profile_pic"
+            imageUrl="@{member.photoUrl}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="1"
             app:layout_constraintStart_toStartOf="parent"
@@ -32,7 +32,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="@{member}"
+            android:text="@{member.name}"
             app:layout_constraintBottom_toTopOf="@id/member_item_cont"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

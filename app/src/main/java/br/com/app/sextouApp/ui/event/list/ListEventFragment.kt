@@ -114,5 +114,9 @@ class ListEventFragment : Fragment(), EventAdapter.ListenerEventClick {
 
         })
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        createAdapter(emptyList())
+    }
 }
 
