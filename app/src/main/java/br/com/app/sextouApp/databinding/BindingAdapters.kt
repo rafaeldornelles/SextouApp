@@ -10,6 +10,13 @@ import androidx.databinding.BindingAdapter
 import br.com.app.sextouApp.R
 import br.com.app.sextouApp.utils.Validator
 import com.google.android.material.textfield.TextInputLayout
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
+import java.net.URL
 import kotlin.math.min
 
 
@@ -33,6 +40,25 @@ object BindingAdapters {
             input.setImageDrawable(imageBitmap.toRoundBitmap().toDrawable(res))
             input.scaleType = ImageView.ScaleType.FIT_XY
 
+        }
+    }
+
+    @BindingAdapter("imageUrl")
+    @JvmStatic
+    fun setImageUrl(input: ImageView, urlString: String?) {
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val url = URL(urlString)
+                val bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream())
+                MainScope().launch {
+                    input.setImageBitmap(bmp.toRoundBitmap())
+                }
+            }catch (e:Exception) {
+                MainScope().launch {
+                    val drawable = input.context.getDrawable(R.drawable.drawable_round_profile_pic)
+                    input.setImageDrawable(drawable)
+                }
+            }
         }
     }
 

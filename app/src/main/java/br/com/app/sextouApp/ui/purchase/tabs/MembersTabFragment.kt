@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import br.com.app.sextouApp.R
 import br.com.app.sextouApp.databinding.FragmentMemberTabBinding
+import br.com.app.sextouApp.model.Member
 import br.com.app.sextouApp.ui.purchase.PurchaseViewModel
 import br.com.app.sextouApp.ui.purchase.adapter.MemberListAdapter
 
@@ -39,10 +40,11 @@ class MembersTabFragment: Fragment(), MemberListAdapter.OnMemberClickListener {
             adapter.members = it
             adapter.notifyDataSetChanged()
         }
+        viewModel.listMembers()
         super.onViewCreated(view, savedInstanceState)
     }
 
-    override fun onMemberClick(member: String, position: Int) {
+    override fun onMemberClick(member: Member, position: Int) {
         viewModel.setMemberFormValue(member, position)
         findNavController().navigate(R.id.action_itemFragment_to_memberFormFragment)
     }

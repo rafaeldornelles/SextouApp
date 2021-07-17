@@ -5,11 +5,16 @@ import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.AttributeSet
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.drawable.toDrawable
+import br.com.app.sextouApp.model.Member
+import br.com.app.sextouApp.repository.Listener
+import br.com.app.sextouApp.repository.ListenerCrudFirebase
+import br.com.app.sextouApp.repository.MemberRepository
 import com.google.android.material.tabs.TabLayout
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -30,18 +35,12 @@ class MainActivity : AppCompatActivity() {
         setAuthStateListener()
         setSupportActionBar(findViewById(R.id.toolbar))
         hideTabLayout()
+        val user = auth.currentUser!!
+        val member = Member(auth.uid!!, user.displayName?: user.email!!, user.email!!, auth.currentUser?.photoUrl?.toString())
+        MemberRepository().update(member, this.memberListener)
     }
 
     override fun onCreateView(name: String, context: Context, attrs: AttributeSet): View? {
-        auth.currentUser?.photoUrl?.let {
-            val a = it.toString()
-            storage.getReferenceFromUrl(it.toString())
-                .getBytes(1024 * 1024)
-                .addOnSuccessListener {
-                    val profileBitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
-                    actionBar!!.setIcon(profileBitmap.toDrawable(resources))
-                }
-        }
         return super.onCreateView(name, context, attrs)
     }
 
@@ -72,6 +71,17 @@ class MainActivity : AppCompatActivity() {
 
     fun showTabLayout(){
         tabLayout.visibility = View.VISIBLE
+    }
+
+    val memberListener = object : ListenerCrudFirebase{
+        override fun onError() {
+            Log.e("FIREBASE", "Error in sync user")
+        }
+
+        override fun onSuccess() {
+            Log.i("FIREBASE", "User sync successful")
+        }
+
     }
 
 }

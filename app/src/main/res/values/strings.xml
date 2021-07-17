@@ -45,4 +45,5 @@
     <string name="event_title">Event</string>
     <string name="option_purchased">Mark as Purchased</string>
     <string name="error_crud">error while saving.</string>
+    <string name="user_not_found">User not Found with provided email</string>
 </resources>
