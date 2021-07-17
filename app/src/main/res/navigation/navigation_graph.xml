@@ -1,11 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/navigation_grapg"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
     app:startDestination="@id/itemFragment">
 
     <fragment
         android:id="@+id/itemFragment"
-        android:name="br.com.app.sextouApp.ui.item.ItemFragment"
-        android:label="ItemFragment" />
+        android:name="br.com.app.sextouApp.ui.purchase.PurchaseFragment"
+        tools:layout="@layout/fragment_item"
+        android:label="ItemFragment" >
+        <action
+            android:id="@+id/action_itemFragment_to_itemFormFragment"
+            app:destination="@id/itemFormFragment" />
+        <action
+            android:id="@+id/action_itemFragment_to_memberFormFragment"
+            app:destination="@id/memberFormFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemFormFragment"
+        android:name="br.com.app.sextouApp.ui.purchase.form.ItemFormFragment"
+        android:label="fragment_item_form"
+        tools:layout="@layout/fragment_item_form" />
+    <fragment
+        android:id="@+id/memberFormFragment"
+        android:name="br.com.app.sextouApp.ui.purchase.form.MemberFormFragment"
+        android:label="fragment_member_form"
+        tools:layout="@layout/fragment_member_form" />
 </navigation>

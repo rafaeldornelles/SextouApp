@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="br.com.app.sextouApp.ui.purchase.PurchaseViewModel" />
+        <import type="br.com.app.sextouApp.utils.Validator" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/frameLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.purchase.form.MemberFormFragment">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/member_form_email"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:hint="@string/member_form_email"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:errorEnabled="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/member_form_button"
+            android:layout_marginBottom="8dp"
+            validator="@{Validator.EMAIL}"
+            model="@{viewmodel.memberFormEmail}"
+            android:layout_marginHorizontal="8dp"
+            app:layout_constraintVertical_chainStyle="packed">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={viewmodel.memberFormEmail}"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/member_form_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/member_form_email"
+            app:layout_constraintEnd_toEndOf="@id/member_form_email"
+            app:layout_constraintTop_toBottomOf="@id/member_form_email"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="@string/insert_member_bt_text" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

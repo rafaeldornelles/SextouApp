@@ -1,45 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <ImageView
-        android:id="@+id/member_picture"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintDimensionRatio="1"
-        android:layout_margin="16dp"
-        android:src="@drawable/drawable_round_profile_pic"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        />
-    <TextView
-        android:id="@+id/member_name"
-        android:layout_width="0dp"
-        style="@style/TextAppearance.MaterialComponents.Headline6"
-        android:layout_height="wrap_content"
-        tools:text="Adilson"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/member_picture"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/member_item_cont"
-        android:layout_marginStart="16dp"
-        app:layout_constraintVertical_chainStyle="packed"
-        android:layout_marginTop="24dp"
-        />
-    <TextView
-        android:id="@+id/member_item_cont"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        tools:text="12 itens associados"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/member_name"
-        app:layout_constraintTop_toBottomOf="@id/member_name"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="24dp"
-        />
+
+    <data>
+        <variable
+            name="member"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/member_picture"
+            android:layout_width="65dp"
+            android:layout_height="0dp"
+            android:layout_margin="16dp"
+            android:src="@drawable/drawable_round_profile_pic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--TODO: IMPLEMENTAR QUANTIDADE DE ITENS ASSOCIADOS -->
+
+        <TextView
+            android:id="@+id/member_name"
+            style="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@{member}"
+            app:layout_constraintBottom_toTopOf="@id/member_item_cont"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/member_picture"
+            app:layout_constraintTop_toTopOf="@+id/member_picture"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Adilson" />
+
+        <TextView
+            android:id="@+id/member_item_cont"
+            android:layout_width="0dp"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/member_picture"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/member_name"
+            app:layout_constraintTop_toBottomOf="@id/member_name"
+            tools:text="12 itens associados" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

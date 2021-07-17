@@ -29,7 +29,7 @@
                 android:resource="@xml/file_paths" />
         </provider>
         <activity android:name=".ui.event.form.EventFormActivity"></activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"/>
         <activity android:name=".LoginActivity" />
         <activity android:name=".SplashScreenActivity">
             <intent-filter>
