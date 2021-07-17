@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import br.com.app.sextouApp.R
 import br.com.app.sextouApp.databinding.FragmentListEventBinding
 import br.com.app.sextouApp.model.Event
 import br.com.app.sextouApp.repository.ListenerList
@@ -27,6 +29,10 @@ class ListEventFragment : Fragment() {
         dataBinding = FragmentListEventBinding.inflate(inflater, container, false)
         dataBinding.viewModel = viewModel
         dataBinding.lifecycleOwner = this
+
+        dataBinding.floatingActionButton.setOnClickListener {
+            findNavController().navigate(R.id.action_listEventFragment_to_eventFormFragment)
+        }
 
         viewModel.listEvent(object: ListenerList<Event> {
             override fun onError(message: String?) {
@@ -55,7 +61,6 @@ class ListEventFragment : Fragment() {
     private fun updateAdapter(list: List<Event>) {
         this.mAdapter.updateList(list)
     }
-
 
 }
 

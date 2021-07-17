@@ -1,7 +1,10 @@
 package br.com.app.sextouApp.ui.event.form
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import java.util.*
 
-class EventFormViewModel(application: Application) : AndroidViewModel(application) {
+class EventFormViewModel : ViewModel() {
+    val name = MutableLiveData<String>()
+    var data = MutableLiveData<Calendar>()
 }

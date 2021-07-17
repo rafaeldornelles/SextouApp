@@ -5,15 +5,24 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment.findNavController
+import androidx.navigation.fragment.findNavController
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import android.service.controls.actions.FloatAction as FloatAction
 
 class MainActivity : AppCompatActivity() {
     val auth = Firebase.auth
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        supportActionBar?.title="Eventos"
+
         setAuthStateListener()
     }
 
@@ -37,5 +46,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+
+
 
 }
