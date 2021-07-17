@@ -41,12 +41,12 @@ class EventFormFragment : Fragment(), DatePickerDialog.OnDateSetListener {
     private fun save(context: Context){
         viewModel.save(dataBinding.buttonDate.text.toString(),object: ListenerCrudFirebase {
             override fun onSuccess() {
-                Toast.makeText(context,"Novo evento Salvo",Toast.LENGTH_LONG).show()
+                Toast.makeText(context,"New event save",Toast.LENGTH_LONG).show()
                 activity?.onBackPressed()
             }
 
             override fun onError() {
-                Toast.makeText(context,"Erro ao salvar",Toast.LENGTH_LONG).show()
+                Toast.makeText(context,"Error to save",Toast.LENGTH_LONG).show()
 
             }
 

@@ -49,7 +49,7 @@ class ListEventFragment : Fragment(), EventAdapter.ListenerEventClick {
 
         viewModel.listEvent(object : ListenerList<Event> {
             override fun onError(message: String?) {
-                Toast.makeText(context, "Erro ao se conectar: ${message}", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "Error to connect: ${message}", Toast.LENGTH_LONG).show()
             }
 
             override fun onSuccess(list: List<Event>) {
@@ -84,7 +84,7 @@ class ListEventFragment : Fragment(), EventAdapter.ListenerEventClick {
         val alertDialog: AlertDialog? = activity?.let {
             val builder = AlertDialog.Builder(it)
             builder.apply {
-                setTitle("Deseja Remover o evento ${event.name} da sua lista ?")
+                setTitle("Do you want to remove the event ${event.name} from your list?")
                 setPositiveButton(R.string.remove,
                     DialogInterface.OnClickListener { dialog, id ->
                         deleteEvent(event)
@@ -104,11 +104,11 @@ class ListEventFragment : Fragment(), EventAdapter.ListenerEventClick {
 
         viewModel.deleteEvent(event,object: ListenerCrudFirebase {
             override fun onSuccess() {
-                Toast.makeText(context,"Evento Removido",Toast.LENGTH_LONG).show()
+                Toast.makeText(context,"removed event",Toast.LENGTH_LONG).show()
             }
 
             override fun onError() {
-                Toast.makeText(context,"Erro ao remover",Toast.LENGTH_LONG).show()
+                Toast.makeText(context,"Error to remove",Toast.LENGTH_LONG).show()
 
             }
 
