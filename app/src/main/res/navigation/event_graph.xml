@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/event_graph.xml"
+    app:startDestination="@id/listEventFragment">
+    <fragment
+        android:id="@+id/listEventFragment"
+        android:name="br.com.app.sextouApp.ui.event.list.ListEventFragment"
+        tools:layout="@layout/fragment_list_event"
+        android:label="ListEventFragment" >
+        <action
+            android:id="@+id/action_listEventFragment_to_eventFormFragment"
+            app:destination="@id/eventFormFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eventFormFragment"
+        android:name="br.com.app.sextouApp.ui.event.form.EventFormFragment"
+        android:label="event_form_fragment"
+        tools:layout="@layout/event_form_fragment" />
+</navigation>
